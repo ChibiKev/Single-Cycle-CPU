@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Chen_Kevin_Single_Cycle_CPU">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_ALU:inst2|Chen_Kevin_LPM_ADD:Chen_Kevin_LPM_ADDFunction|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_plh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_ALU:inst2|Chen_Kevin_LPM_DIVIDE:Chen_Kevin_DIVIDEFunction|lpm_divide:LPM_DIVIDE_component" CBX_FILE_NAME="lpm_divide_eup.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_ALU:inst2|Chen_Kevin_LPM_SUBTRACT:Chen_Kevin_LPM_SUBTRACTFunction|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_qmh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_LPM_ADD:inst14|lpm_add_sub:LPM_ADD_SUB_component" CBX_FILE_NAME="add_sub_plh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_LPM_MUX:inst15|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k4e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_LPM_MUX:inst8|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k4e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_LPM_5bit_MUX:inst11|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_43e.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Chen_Kevin_Single_Cycle_CPU_Board|Chen_Kevin_Single_Cycle_CPU:inst|Chen_Kevin_LPM_MUX:inst7|LPM_MUX:LPM_MUX_component" CBX_FILE_NAME="mux_k4e.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

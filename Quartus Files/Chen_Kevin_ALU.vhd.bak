@@ -1,0 +1,139 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Chen_Kevin_ALU is
+port(
+			Chen_Kevin_a, Chen_Kevin_b: in std_logic_vector (31 downto 0);
+			Chen_Kevin_result: out std_logic_vector (31 downto 0);
+			Chen_Kevin_Start: in std_logic;
+			Chen_Kevin_op: in std_logic_vector(2 downto 0)
+			);
+end Chen_Kevin_Operations;
+
+architecture arch of Chen_Kevin_Operations is
+	signal Chen_Kevin_in1, Chen_Kevin_in2: std_logic_vector(5 downto 0);
+	signal Chen_Kevin_AND, Chen_Kevin_OR, Chen_Kevin_XOR, Chen_Kevin_NOT,
+	Chen_Kevin_ShiftLeft, Chen_Kevin_ShiftRight, Chen_Kevin_RotateLeft,
+	Chen_Kevin_RotateRight: std_logic_vector(5 downto 0);
+
+component Chen_Kevin_Bitwise_AND
+  port (Chen_Kevin_a, Chen_Kevin_b : in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Bitwise_OR
+  port (Chen_Kevin_a, Chen_Kevin_b : in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Bitwise_XOR
+  port (Chen_Kevin_a, Chen_Kevin_b : in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Bitwise_NOT
+  port (Chen_Kevin_a: in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Shift_Left
+  port (Chen_Kevin_a: in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Shift_Right
+  port (Chen_Kevin_a: in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Rotation_Left
+  port (Chen_Kevin_a: in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+component Chen_Kevin_Rotation_Right
+  port (Chen_Kevin_a: in std_logic_vector(5 downto 0);
+        Chen_Kevin_result : out std_logic_vector(5 downto 0)
+    );
+end component;
+
+					
+begin
+Chen_Kevin_in1 <= Chen_Kevin_a;
+Chen_Kevin_in2 <= Chen_Kevin_b;
+
+Chen_Kevin_ANDFunction: Chen_Kevin_Bitwise_AND 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_b => Chen_Kevin_in2, 
+					Chen_Kevin_result => Chen_Kevin_AND);
+
+Chen_Kevin_ORFunction: Chen_Kevin_Bitwise_OR 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_b => Chen_Kevin_in2, 
+					Chen_Kevin_result => Chen_Kevin_OR);					
+
+Chen_Kevin_XORFunction: Chen_Kevin_Bitwise_XOR 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_b => Chen_Kevin_in2, 
+					Chen_Kevin_result => Chen_Kevin_XOR);
+
+Chen_Kevin_NOTFunction: Chen_Kevin_Bitwise_NOT
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_result => Chen_Kevin_NOT);
+
+Chen_Kevin_ShiftLeftFunction: Chen_Kevin_Shift_Left 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_result => Chen_Kevin_ShiftLeft);
+
+Chen_Kevin_ShiftRightFunction: Chen_Kevin_Shift_Right 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_result => Chen_Kevin_ShiftRight);
+
+Chen_Kevin_RotateLeftFunction: Chen_Kevin_Rotation_Left 
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_result => Chen_Kevin_RotateLeft);
+
+Chen_Kevin_RotateRightFunction: Chen_Kevin_Rotation_Right
+	port map( Chen_Kevin_a => Chen_Kevin_in1,
+					Chen_Kevin_result => Chen_Kevin_RotateRight);
+
+process (Chen_Kevin_Start,Chen_Kevin_a,Chen_Kevin_b,Chen_Kevin_op)
+begin
+	if (Chen_Kevin_Start='1') then
+		case Chen_Kevin_op is 
+			when "000" =>
+			Chen_Kevin_result <= Chen_Kevin_AND;
+			when "001" =>			
+			Chen_Kevin_result <= Chen_Kevin_OR;
+			when "010" =>
+			Chen_Kevin_result <= Chen_Kevin_XOR;
+			when "011" =>
+			Chen_Kevin_result <= Chen_Kevin_NOT;
+			when "100" =>
+			Chen_Kevin_result <= Chen_Kevin_ShiftLeft;
+			when "101" =>
+			Chen_Kevin_result <= Chen_Kevin_ShiftRight;
+			when "110" =>
+			Chen_Kevin_result <= Chen_Kevin_RotateLeft;
+			when "111" =>
+			Chen_Kevin_result <= Chen_Kevin_RotateRight;
+			when others =>
+				NULL;
+		end case;
+		if (signed(Chen_Kevin_b) > (signed(Chen_Kevin_a))) then
+		Chen_Kevin_LessThan <= '1';
+		else
+		Chen_Kevin_LessThan <= '0';
+		end if;
+	end if;
+end process;
+
+end arch;
